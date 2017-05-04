@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+//Here enables to see how js pass values.
+
+
+function changeInt(i)
+{
+	console.log(b === i);
+	i = 5050;
+	console.log(b === i);	
+}
+function changeArray(iArray)
+{
+    iArray[0] = 5050;
+}
+function changeObject(obj)
+{
+	obj.name = "hello World";
+	obj = new Object();
+	obj.name = "changed!";
+}
+
+var i = 10;
+var b = i;
+
+changeInt(i);
+
+var z1= new Array(1,2,3,4,5);
+var z2= [1,2,3,4,5];
+console.log(z1 == z2);	
+
+
+
+ 
+</script> 
+</html>

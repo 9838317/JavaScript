@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+function functionIsObject()
+{
+	alert("testLog. This is a function called.");
+}
+
+function functionAsAttr()
+{
+    alert("This shows that we can treat functions as attr of another function.");
+}
+
+functionIsObject.methodA = functionAsAttr;
+
+functionIsObject.methodA();
+
+</script>
+
+</html>

@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+
+<div id = "forAjaxToChange">
+<input type = button  onclick="ajaxWrapper()">
+</div>
+</body>
+
+<script type="text/javascript">
+
+/*
+This is a instance shows why Asyn
+*/
+
+
+
+
+	var ajaxObject = new window.XMLHttpRequest();
+	ajaxObject.open("GET","ajax_info.txt", true);
+	ajaxObject.send();
+
+	//notice that it logs 5 blank line to the console. since at this moment, it still hasn't receive the data.
+        if (ajaxObject.responseText)
+		console.log(ajaxObject.responseText);
+	    else 
+	    	console.log("not exists");
+        if (ajaxObject.responseText)
+		console.log(ajaxObject.responseText);
+	    else 
+	    	console.log("not exists");	    		
+        if (ajaxObject.responseText)
+		console.log(ajaxObject.responseText);
+	    else 
+	    	console.log("not exists");
+        if (ajaxObject.responseText)
+		console.log(ajaxObject.responseText);
+	    else 
+	    	console.log("not exists");
+	    
+	//after the data is received, then the info displays. 
+	setInterval(sayHi, 5000);
+	function sayHi()
+	{
+        if (ajaxObject.responseText)
+		console.log(ajaxObject.responseText);
+	    else 
+	    	console.log("not exists");
+	}
+
+	//这个例子可以看出,onReadyState 的功能是什么，就是在数据完全取得之后，来产生一个回应。因此，前面的几个没有收到数据，这个情况下是不会log东西的。只有等到最后接收到数据，才会log东西。
+
+
+
+
+</script>
+</html>

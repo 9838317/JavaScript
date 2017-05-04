@@ -1,0 +1,52 @@
+
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+<input type = text id = "stockName" placeholder = "input stock"><br>
+<p>请输入股票代码，比如"sh601006", 不要带引号。</p>
+<button id = "button">click</button>
+<input id = "input" type = submit>
+
+<p id = "infomation"></p>
+
+</body>
+
+<script type="text/javascript">
+
+document.getElementById("button").onclick = getStock;
+document.getElementById("input").addEventListener("click", getStock);
+
+function getStock()
+{
+	var stockName = document.getElementById("stockName");
+	var string = stockName.value;
+	var script = document.createElement("script");
+	script.src = "http://hq.sinajs.cn/list=" + string;
+	document.head.appendChild(script);
+	window.stockName = "hq_str_" + string;
+	console.log(window.stockName);
+}
+
+function setInnerHTML()
+{
+	if (eval(window.stockName.toString()))
+	{
+		var pTag = document.getElementById("infomation");
+			pTag.innerHTML = eval(window.stockName.toString());
+			clearInterval(repeater);
+			window.stockName = undefined;
+	}
+
+}
+
+var repeater = setInterval(setInnerHTML, 1000);
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+//Here enables to see how js pass values.
+
+var color = "blue";
+
+function changeColor()
+{
+    function swapColors()
+    {
+    	alert(color);
+
+    	//notice that if there is no argument, inner scope is able to modify outer scope.
+    	color = "changed!";
+    }
+	swapColors();
+	/*
+	1. swapColors begins. It doesn't find color, so it look it up in changeColor.
+	2. still not find color, it again look it up in Global.
+	3. find color, so alert blue.
+	*/
+}	
+changeColor();
+alert(color);
+
+     
+</script> 
+</html>

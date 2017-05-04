@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+
+  <body>
+<p id = "p">This is a p.</p>
+</body>
+
+<script type="text/javascript">
+
+
+
+
+//last time we register a function in the html.
+//here we register the function to the element, but in JS file.
+//The problem of this is that it can only register a function.
+var elementP = document.getElementById("p");
+elementP.innerHTML = "changed!";
+elementP.onclick = loger;
+
+function loger()
+{
+	console.log("This is a log file.");	
+}
+
+
+</script>
+
+
+</html>

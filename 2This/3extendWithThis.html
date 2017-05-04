@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+
+function functionIsObject()
+{
+	//when we use "this", it can flexibly point to the obj, so this extend the function:
+	//depend on which function it binds, it can point to different parent function.
+	console.log(this.value);
+}
+
+var newObjA = new Object();
+	newObjA.value = 1000;
+	newObjA.method = functionIsObject;
+	
+var newObjB = new Object();
+	newObjB.value = 1500;
+	newObjB.method = functionIsObject;
+
+//with .method(), it wraps the function "functionIsObject" which can log attr regardless of the name of identifier.
+newObjA.method();
+newObjB.method();
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</html>

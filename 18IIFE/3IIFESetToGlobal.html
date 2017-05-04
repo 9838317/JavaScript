@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+
+//Here we see that,with a clean IIFE, we still can add an object to the global in a very clean style.
+
+(
+	function(args)
+	{
+		console.log(args);
+		args.newObject = new Object;
+	}
+
+)(window);
+
+console.log(window.newObject);
+
+</script>
+
+</html>

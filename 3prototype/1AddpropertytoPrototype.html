@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+  /*
+    http://weizhifeng.net/javascript-the-core.html
+    http://dmitrysoshnikov.com/ecmascript/javascript-the-core/
+
+    上一个课说到了__proto__，这里继续说下一个主题：prototype.
+
+    我们手动把B,C的__proto__指向父对象A，从而让它得到了A的属性。下面有简单的方法，可以做到这个，就是使用构造器函数Confun。
+
+    在JS中，构造器函数有一个prototype属性，由构造器生成的实例/对象，它们的__proto__就在也不是Object.prototype了，而是Confun.prototype。 换句话说，Confun.prototype里面的所有函数，子对象就可以直接访问了。
+  
+    而且注意到这里提供了一个公用变量的功能。
+
+  */
+
+    function Confun(arg1)
+    {
+        this.name = arg1;
+    }
+    
+    Confun.prototype.yell = function()
+                            {
+                            	alert(this.name);
+                            }   
+
+    Confun.prototype.x = 100;
+
+    console.log(Confun.prototype);    
+    console.log(Confun.__proto__);      
+
+
+    instanceOfConfun1 = new Confun("apple");
+    instanceOfConfun2 = new Confun("pear");
+
+    console.log(Confun.prototype.x);   
+    console.log(instanceOfConfun1.x);   
+    console.log(instanceOfConfun2.x);
+
+    instanceOfConfun2.x = 5050;
+    console.log(Confun.prototype.x);   
+    console.log(instanceOfConfun1.x);   
+    console.log(instanceOfConfun2.x);
+
+</script>
+
+</html>

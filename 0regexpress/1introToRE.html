@@ -1,0 +1,60 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+<h1>good</h1>
+  </body>
+
+<script type="text/javascript">
+
+//正则表达式的快速记忆方法可以用下面一句话稍微概括：
+//头尾点滴大小s，米加贪婪中括号，看下面的例子。
+//js中的re有3种修饰符，gim。
+
+//头
+var ret = /^ke/g;
+    console.log(ret.test("kenshin"));
+var ref = /^ke/g;
+    console.log(ref.test("enshin"));
+    console.log("________________________\n");
+
+//尾
+var ret = /in$/;
+    console.log(ret.test("kenshin"));
+var ref = /in$/;
+    console.log(ref.test("kenshine"));
+    console.log("________________________\n");
+
+//点滴，匹配字母
+var ret = /^.en/;
+    console.log(ret.test("1enshin"));
+    console.log(ret.test("benshin"));
+    console.log(ret.test("kenshin"));
+    console.log("________________________\n");
+
+//大小s
+var ret = /^\S/;
+    console.log(ret.test("kenshine"));
+    console.log(ret.test("1enshine"));
+    console.log(ret.test(" enshine"));
+    console.log("________________________\n");
+
+//大小s
+var ret = /^\s/;
+    console.log(ret.test("kenshine"));
+    console.log(ret.test("1enshine"));
+    console.log(ret.test(" enshine"));
+    console.log("________________________\n");
+
+//中括号
+
+
+
+
+</script>
+
+
+</html>

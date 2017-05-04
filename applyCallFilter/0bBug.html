@@ -1,0 +1,51 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+
+function saySelf()
+{
+	console.log(window);
+}
+
+saySelf();
+
+var newObj = 
+{
+	"name"  : "masalaty",
+	logIt   : saySelf,
+    increase: function()
+    {
+    	self = this;
+        var future = function()
+        {
+        	self.name = "increase";
+        }	
+        future();
+    }
+};
+console.log(newObj.name);
+console.log(window.name);
+newObj.increase()
+console.log(newObj.name);
+console.log(window.name);
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</html>

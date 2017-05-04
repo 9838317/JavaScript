@@ -1,0 +1,36 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+    function ConstruFn(name)
+    {
+        this.name           = name;
+        this.setName        = function()
+                            {
+                                this.name = "name changed!";
+                            } 
+    }
+    
+    var newObj = new ConstruFn("origin");  
+        newObj.name;                       //origin
+        newObj.setName();
+        newObj.name;                       //name changed!
+
+
+    var irelevantObj = 
+    {
+        "name":"irele"
+    };
+    irelevantObj.name;                    //irele
+    irelevantObj.setName = newObj.setName;
+    irelevantObj.setName();
+    irelevantObj.name;                    //name changed!
+
+</script>
+
+</html>

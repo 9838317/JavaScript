@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+	//we still haven't share a same method. By using a prototype, we will be able to share the same function.
+
+    function prototypeFunction(name, speed)
+    {
+    	prototypeFunction.prototype.name     = name;
+    	prototypeFunction.prototype.speed    =speed;
+    	prototypeFunction.prototype.alerter  = function(){alert("alert it.");}
+    } 
+
+    var newCar = new prototypeFunction ("Car", 200);
+    newCar.alerter();
+
+    //The essence here is to treat each of the attribute as sharing. 
+    // It solve the sharing function, however it raise another problem of all attrs sharing.
+
+
+
+</script>
+
+
+</html> 

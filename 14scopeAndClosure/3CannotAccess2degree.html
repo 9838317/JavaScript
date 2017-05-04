@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+
+	var a = 10;
+	var b = 10;
+
+	function parent()
+	{
+		a = 100;
+		b = 100;
+
+		function son()
+		{
+			return a + b + 127;
+		}
+		return son
+	}
+
+	var c = parent();
+	alert(c());	
+
+	alert(a);
+	alert(b);
+
+	/*
+	In conclusion, closure is the usage of a variable inside a function without first declaring it.
+
+	Practically, we can use a 2 degree function(function inside another function) to keep the scope of the parent function forever available. This is the most frequent usage of closure.  
+	*/
+
+</script>
+
+
+</html>

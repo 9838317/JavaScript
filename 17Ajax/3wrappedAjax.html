@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+
+<div id = "forAjaxToChange">
+<input id = "ajaxInput" type = button>
+</div>
+</body>
+
+<script type="text/javascript">
+
+/*
+	In general, ajax could be treated as a api or function. The steps are as following:
+
+		a. ajaxObject:              create a ajax object.
+		b. ajaxObject.open():       to specify the file that you want to generate
+		c. ajaxObject.send():       to actually send the request, at this moment, the data is get. as ajaxObject.responseText.
+
+	with the above function, then we can wrap ajaxObject into a wrapper function as following:
+	
+		1. bind a button to fire the function.
+		2. in the function, there is an ajaxObject, with the methods above: new, open, send
+		3. set onreadystatechange to a function to change content whenever it reveives the data.
+
+	done.
+
+	Application of this containing: 
+
+		1. get wire data from the web, or
+		2. change some picures like cs50 class.
+*/
+
+function ajaxWrapper()
+{
+	function changeContent()
+	{
+		var div = document.getElementById("forAjaxToChange");
+	    if (this.readyState == 4 && this.status == 200) 
+	    {
+				div.innerHTML = this.responseText;
+		}
+	}
+
+	var ajaxObject = new window.XMLHttpRequest();
+		ajaxObject.onreadystatechange = changeContent;
+
+	ajaxObject.open("GET","ajax_info.txt", true);
+
+	//At this moment, after open, there is no actual data receives.
+	ajaxObject.send();
+	//At this moment, even after send, there might no be some data response.		
+}
+
+document.getElementById("ajaxInput").addEventListener("click", ajaxWrapper);
+
+</script>
+</html>

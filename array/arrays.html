@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+<div id = "div"></div>
+</body>
+ 
+<script type="text/javascript">
+
+var list = [5,4,3,2,1];
+    list.splice(3,1);
+    div.insertAdjacentHTML("beforeend", list + "<br>");
+
+var list = [5,4,3,2,1];
+    div.insertAdjacentHTML("beforeend",list.slice(3,5) + "<br>");
+    div.insertAdjacentHTML("beforeend",list.slice(1,5) + "<br>");
+    div.insertAdjacentHTML("beforeend",list.slice(1,500) + "<br>");
+</script>
+
+ </html> 

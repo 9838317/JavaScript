@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+/**    Previously we talked a lot about prototype in JS. In this class we will dive into more details of prototype. 
+  *    Here we shows how prototype can be defined in either construct functional paradime or Object.create paradime.
+  *
+  *
+  *
+  *
+  *
+**/
+    //construction method
+    function constructFun (name) 
+    {
+    	this.name = name;
+    	this.obj  = {objName: name};
+    	this.sayA = function(){console.log(this.name);}
+    }
+    
+    var objA = new constructFun("ken");
+
+    //Object.create() method
+    var People = {
+    	name:"kenshin",
+    	container:{color:"red"},
+    	sayH: function(){alert(1234);}
+    }
+
+    //And then we can use the create function to create a new object. remember that in this project, it doesn't have any property except for the __proto__ property, so this is called inheritance.
+    var descentOfPeople = Object.create(People);
+
+    console.log(People.name);
+    console.log(People.container.color) ;  
+    
+    console.log(descentOfPeople.name);
+    console.log(descentOfPeople.container) ;  
+    
+    console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n") ;  
+
+    //注意到这里为什么改变descentOfPeople.name不影响母亲，而descentOfPeople.container.color就会影响母亲。
+    //这还是可以从prototype去解释。descentOfPeople是一个obj， 所以当直接给obj加上属性的时候，它就会在这个obj上面创造一个属性。然而，下一句话中，假如修改descentOfPeople的container的color的时候，首先它查不到container的话就会去mother那里去查，这个时候就找到了一个对象，所以最后更改的就是mother的属性。
+    //下面给出2个例子可以好好体会一下prototype寻根/attr重创建的区别。
+    //从根本上而言，这里的区别还是passing by value和passing by reference的区别。
+
+/*
+    descentOfPeople.name = "change1";
+    descentOfPeople.container.color = "change2";
+    
+    console.log(People.name);
+    console.log(People.container.color) ;  
+    
+    console.log(descentOfPeople.name);
+    console.log(descentOfPeople.container.color) ;  
+
+*/
+
+    descentOfPeople.name = "change1";
+    descentOfPeople.container = "change2";
+    
+    console.log(People.name);
+    console.log(People.container);  
+    
+    console.log(descentOfPeople.name);
+    console.log(descentOfPeople.container) ;  
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+
+	/*
+	in this example we show some e.g. and pitfalls.
+	*/
+
+	//#1:
+	//there is a hide third(temp) string under the hood, thus it is slow.
+	var aString  = "hello";
+		aString += "world";
+
+    
+    //#2:
+    //array string
+    var arrayString     = new Array();
+        arrayString[0]  = "hello";
+        arrayString[1]  = "world";
+        //...
+
+    var aimString       = arrayString.join(" ");
+
+    console.log(aimString);    
+
+
+</script>
+
+
+
+
+
+
+
+
+</html>

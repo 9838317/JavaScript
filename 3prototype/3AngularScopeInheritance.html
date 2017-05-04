@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+
+<div ng-app = parentContainer ng-controller = parentBehavior>
+
+    {{parentName}}
+    {{childName}}
+
+    <div ng-controller = childBehavior>
+    
+    {{parentName}}
+    {{childName}}
+    
+    </div>
+    
+</div>
+
+
+  </body>
+
+<script type="text/javascript" src = angular.min.js></script>
+
+<script type="text/javascript">
+
+    //This file shows how the child could access the son's scope.
+    var parentContainer = angular.module("parentContainer", []);
+        parentContainer.controller("parentBehavior", parentBehavior);
+        parentContainer.controller("childBehavior", childBehavior);
+    
+        function parentBehavior($scope)
+        {
+        	$scope.parentName = "parent";
+        }
+        function childBehavior($scope)
+        {
+            $scope.childName = "child";
+        }
+
+</script>
+
+</html>

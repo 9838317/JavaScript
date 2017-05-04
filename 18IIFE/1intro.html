@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+/*
+	IIFE is to keep a clean global env.
+	it is to create a anonymous function and then invoke the function.
+*/
+
+	//this is a definition of a function.
+	var sampleFunction = function(){console.log("get it");}
+
+	//when it is called, str will be logged into the console.
+	sampleFunction();
+
+//so, above 2 statement can be combined as:
+
+	//function(){console.log("get it");}();
+
+//but it won't work, the definition of the function should be embranced by a pair of parenthesis.
+
+	(    function(){console.log("get it");}    )    ();
+
+</script>
+
+</html>

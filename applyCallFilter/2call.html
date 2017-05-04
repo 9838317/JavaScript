@@ -1,0 +1,29 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+        function setName()
+        {
+            this.name  = "name changed!";
+        } 
+
+        var irelevantObj = 
+        {
+            "name":"irele"
+        };
+
+        console.log(irelevantObj.name);
+        setName.call(irelevantObj);
+        console.log(irelevantObj.name); 
+
+
+
+</script>
+
+</html>

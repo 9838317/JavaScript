@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+function changeInt(i)				{	 i         = 5050;  }
+function changeArray(iArray)		{    iArray[0] = 5050;	}
+
+function changeObject(obj)
+{
+	obj.name = "hello World";
+	obj = new Object();
+	obj.name = "changed!";
+}
+
+//Here please notice that professional javascript 3rd there is an error.
+
+//passing by value
+
+i = 10;					console.log(i);
+changeInt(i);			console.log(i);
+
+
+//passing by ref
+iArray = [1,2,3,4,6];	console.log(iArray);
+changeArray(iArray);	console.log(iArray);
+
+
+//passing by value.
+obj = new Object();
+console.log(obj);
+console.log(obj.name);
+obj.name = "good day";
+changeObject(obj);
+console.log(obj);
+console.log(obj.name);
+
+ 
+</script> 
+</html>

@@ -1,0 +1,44 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+    //Here shows a but of "this" in javascript.
+    var newObj = new Object();
+    newObj.value = 1000;
+    newObj.methodA = functionIsObject;
+  
+    //with this statement, newObj.value will be logged together with newObj.
+    //functionIsObject belongs to newObj, so attr of newObj is why logged.
+    newObj.methodA();
+    
+    function functionIsObject()
+    {
+      console.log(this);
+      console.log(this.value);
+
+    //this is a but because the flowing "this" refers to global window.
+    var functionInsideFuntion =function(){console.log(this);}
+    functionInsideFuntion();
+
+
+    }
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</html>

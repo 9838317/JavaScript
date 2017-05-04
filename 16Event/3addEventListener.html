@@ -1,0 +1,31 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+
+  <body>
+<p id = "p">This is a p.</p>
+</body>
+
+<script type="text/javascript">
+
+
+
+
+//with addEventListener, we can register n functions to an element.
+var elementP = document.getElementById("p");
+elementP.innerHTML = "changed!";
+elementP.addEventListener("click", loger);
+
+function loger()
+{
+	console.log("This is a log file.");	
+}
+
+
+</script>
+
+
+</html>

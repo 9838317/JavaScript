@@ -1,0 +1,70 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+	//This is about closure.
+	/*
+
+		closure wiki:
+
+		https://en.wikipedia.org/wiki/Closure_%28computer_programming%29
+
+		"A closure is a record storing a function together with an environment". 
+				in a deeper sense, when a variable is used in a function but without declaring, it's the simplese case of a closure. 
+		
+		a. environment/scope: each function has its own scope. Here we define 2 functions and 3 scopes:	
+			function parent() and function son()
+
+			1.	the scope that creates parent()    is called  scopeGlobal. 
+			2.	the scope that creates son()       is actually the scope that function parent() is in charge of. we call it scopeParent. 
+			3.  the scope that son()               is in charge of, we call it scopeSon.
+
+			 See following:	
+
+				***************
+					//here is scopeGlobal, in this env we create parent().
+					function parent()
+					{
+						//here is scopeParent, in this env we create son().
+						function son()
+						{
+							//Here is scopeSon
+						}
+					}
+				****************
+			With the function definitions above, we can do some manipulation. 
+
+		b.  If we take son() as a return function of parent(), then something useful and funny will happen.
+	*/	
+	
+	//Following is the example, 
+	function parent(paraA, paraB)
+	{
+
+		function son(closurePara)
+		{
+			return paraA + paraB + closurePara;
+			//Here is scopeSon
+		}
+		return son
+	}
+
+	var a = parent(4, 5);
+	console.log(a(10));	
+
+	/*
+	In conclusion, closure is the usage of a variable inside a function without first declaring it.
+
+	Practically, we can use a 2 degree function(function inside another function) to keep the scope of the parent function forever available. This is the most frequent usage of closure.  
+	*/
+
+</script>
+
+
+</html>

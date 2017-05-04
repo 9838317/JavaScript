@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+	//All things are shared of different class. in this case, we use a mix way.
+
+    function prototypeFunctionMixed(name, speed)
+    {
+    	this.name     = name;
+    	this.speed    = speed;
+    	prototypeFunctionMixed.prototype.alerter  = function(){alert("alert it.");}
+    } 
+
+    var newCar = new prototypeFunctionMixed ("Car", 200);
+    newCar.alerter();
+
+    //see, everything solved. except that every time when there is a new instance initiated, 
+    //prototypeFunctionMixed.prototype.alerter will be rewrite then and then.
+
+    // so we add a new clause to avoid it.
+
+/*
+if (typeof prototypeFunctionMixed._initialized == true)
+{
+    prototypeFunctionMixed.prototype.alerter  = function(){alert("alert it.");}
+}
+*/
+
+    //then only instance variable changes.
+
+
+
+
+</script>
+
+
+</html> 

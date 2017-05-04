@@ -1,0 +1,25 @@
+1.   typeof
+2.   空identifier和未初始化identifier，alert出错，然而typeof都是undefined
+3.   parseInt(para, 2/8/16)
+4.   parseFloart(para)
+5.   旧浏览器里 str = str + "hello"很慢，现在已经不会了。（怎么解决）
+6.   toString();
+7.   toString(radix);
+8.   for (element in array)	{alert (element);}
+9.   function (){alert(arguments);}
+10.  if (arguments.length = )可以用来模拟overload.
+11.  注意passing by value 和 passing by ref的区别。
+12.  it is really complex when we pass an object into a function in JS
+13.  instanceof
+14.  scope and scope chain.
+15.  inner function how to access outer scope and change outer variable.
+16.  ES5没有block scope, ES6有了。
+17.  reference counting:  if circular reference, remember to put Null. 
+18   not only inside the object, even global, it is pleasing to set globalName = null.
+-----------------
+19   there is no class in JS, only object(which is also constructor) exists.
+
+
+alert出来的东西是一个string，所以当alert(object)的时候，它首先把object调用toString方法。
+toString and ToLocalString: One is operating system specific. The other isn't 
+push, pop and splice(index, n, elements), shift, unshift,: reverse()和sort(), sort(compare), concat, slice, indexOf, lastIndexOf

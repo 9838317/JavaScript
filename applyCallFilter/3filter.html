@@ -1,0 +1,53 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+
+<script type="text/javascript">
+
+    //first specific filter
+    function bigNumFilter()
+    {   
+        var resultArray = [];
+        for(var i in self)
+        {
+            if (i > 5)
+            {
+                resultArray.push(i);
+            }
+        }
+        return resultArray     
+    }
+
+    //second specific filter
+    function oddFilter()
+    {   
+        var resultArray = [];
+        for(var i in self)
+        {
+            if (i % 2 == 1)
+            {
+                resultArray.push(i);
+            }
+        }
+        return resultArray     
+    }
+
+    //wrapper
+    function choose(changingFunction)
+    {   
+        self = this;
+        return changingFunction();
+    }
+
+    var newArray = [1,2,3,4,5,6,7,8,9];
+    newArray.choose = choose;
+    console.log(newArray.choose(bigNumFilter));
+    console.log(newArray.choose(oddFilter));
+
+</script>
+
+</html>

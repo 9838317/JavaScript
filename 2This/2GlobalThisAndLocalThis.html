@@ -1,0 +1,49 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+    //when function becomes the attr of an obj, "this" refers to the obj.
+    //if it is a global function, then ”this“ refers to "Global".
+    function functionIsObject()
+    {
+      //This is a global function, so if we call functionIsObject(), then window will be logged., see following
+      console.log(this);
+      console.log(this.value);
+    }
+
+    //this call will log window object into console.
+    //since this is a global defined function
+    functionIsObject();
+//_______________________________
+
+    //but when we assign the function to an object, "this" keyword will points to the object. Even the function doesn't change at all. 
+    var newObj = new Object();
+    newObj.value = 1000;
+    newObj.methodA = functionIsObject;
+    
+    //Global
+    functionIsObject();
+    
+    //newObj
+    newObj.methodA();
+    
+    //finally, 3 objects were logged.
+    //window, window, newObj.
+    
+
+</script>
+
+
+
+
+
+
+
+
+</html>

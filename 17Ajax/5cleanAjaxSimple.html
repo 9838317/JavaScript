@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+  </head>
+<body>
+  <h1 id="title">Lecture 57</h1>
+  
+  <p>
+    <button id = "button">
+      Say Hello To Someone on the Server!
+    </button>
+  </p>
+
+<div id = "forAjaxToChange">
+
+</div>
+
+  
+  <div id="content"></div>
+</body>
+<script type="text/javascript">
+
+	function goody(global) 
+	{
+
+		function createRequestObject() 
+		{
+			  if (window.XMLHttpRequest) 
+			  {
+			    return (new XMLHttpRequest());
+			  } 
+			  else if (window.ActiveXObject) 
+			  {
+			    return (new ActiveXObject("Microsoft.XMLHTTP"));
+			  } 
+			  else 
+			  {
+			    global.alert("Ajax is not supported!");
+			    return(null); 
+			  }
+		}
+
+		var ajaxUtils = {};
+
+		ajaxUtils.sendGetRequest = function(requestUrl, responseHandler) 
+									{
+									    var request = createRequestObject();
+									    	request.onreadystatechange = function() 
+									    	{ 
+									        	handleResponse(request, responseHandler); 
+									    	};
+									    request.open("GET", requestUrl, true);
+									    request.send(null); // for POST only
+									};
+
+
+		function handleResponse(request, responseHandler) 
+		{
+			if ((request.readyState == 4) && (request.status == 200)) 
+			{
+				responseHandler(request);
+			}
+		}
+		global.$ajaxUtils = ajaxUtils;
+	}
+
+goody(window);
+
+document.addEventListener("DOMContentLoaded",  function (event) {
+    
+    // Unobtrusive event binding
+    document.querySelector("button") .addEventListener("click", sendFunction);
+
+    // Call server to get the name
+    function sendFunction() 
+    {        	
+    	$ajaxUtils.sendGetRequest("name.txt", changeRequest);
+         function changeRequest(request) 
+         {
+              var name = request.responseText;
+              document.querySelector("#forAjaxToChange")
+                .innerHTML = "<h2>Hello " + name + "!</h2>";
+         }
+
+        
+      }
+
+  }
+);
+
+
+/*function changeDiv(request)
+{
+	document.getElementById("#forAjaxToChange").innerHTML = request.responseText;
+}
+
+document.getElementById("button").addEventListener("click", $ajaxUtils.sendGetRequest("name.txt", changeDiv));
+
+*/
+
+
+
+
+
+
+
+</script>
+
+</html>

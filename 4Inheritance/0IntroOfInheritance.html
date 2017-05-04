@@ -1,0 +1,53 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+
+    //generation1 construct function.
+    function G1BoyConstrutor(name)
+    {
+        this.name  = name;
+    } 
+
+    //construction function method.
+    /*      function G2Construtor(name, speed, g2specificArg)
+            {
+                var newObj = new G1Construtor(name, speed);
+                newObj.g2specificArg = g2specificArg;
+                return newObj;
+            } 
+    */
+    //another implementation:
+    
+    function ExtraConstructor(anotherName)
+    {
+        this.anotherName = anotherName;
+    }
+
+    function G2Construtor(name, anotherName, age, g2specificArg)
+    {
+    	//Here we take G1Construtor as a method to create an instance.
+        //constructor could be use as a method to modify this.
+    	this.Fatherconstrutor = G1BoyConstrutor;
+        this.Fatherconstrutor(name);
+        delete this.FatherConFun;
+
+        this.Fatherconstrutor = ExtraConstructor;
+        this.Fatherconstrutor(anotherName);
+        delete this.FatherConFun;
+
+        this.age           = age;
+        this.g2specificArg = g2specificArg;
+    } 
+    var instanceOfG1 = new G1BoyConstrutor("boyG1");
+    var instanceOfG2 = new G2Construtor("boyG2", "multipleInheritance", 100, "bad");
+
+</script>
+
+</html>

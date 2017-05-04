@@ -1,0 +1,163 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+  </body>
+
+<script type="text/javascript">
+
+/*
+	1. 对象就是属性的集合，再加上一个__proto__隐藏属性。
+*/
+
+    var instanceObj = {name:"goodDog"};
+    
+    console.log(instanceObj.name);
+    console.log(instanceObj.__proto__);        //如不指定，则自动继承Object.prototype
+
+/*
+	2. 为什么要有__proto__隐藏属性？
+
+	现在假设我们有3个不相关的对象，ex1objA, ex1objB, ex1objC, 我们打算让它们有相似的方法yell()，暂时不用构造函数的方法，想让它们共用一个外部函数，怎么做？ 答案比较简单，只要把
+    一个attr链接到外部函数externalYelling， 如下：
+*/
+    function externalYelling()
+    {
+    	alert(this.name);
+    }
+
+    var ex1objA = 
+    {
+    	name: "OBJA",
+    	yell: externalYelling
+    };
+    var ex1objB = 
+    {
+    	name: "OBJB",
+    	yell: externalYelling
+    };
+    var ex1objC = 
+    {
+    	name: "OBJC",
+    	yell: externalYelling
+    };
+    //ex1objA.yell()       --> "OBJA"
+    //ex1objB.yell()       --> "OBJB"
+    //ex1objC.yell()       --> "OBJC"
+
+/*
+    这么写就是以链接外部函数实现函数共享，有没有其他写法？有，可以使用__proto__。这种方法就是所谓的原型链方法。具体地说，通过在ex2objB， ex2objC中，让它们的__proto__指向对象ex2objA，就可以让他们使用ex2objA的方法了。
+
+*/
+
+    var ex2objA = 
+    {
+           name: "OBJA",
+           yell:   function()
+                   {
+                       	alert(this.name);
+                   }
+    };
+    var ex2objB = 
+    {
+        name     : "OBJB",
+        __proto__:ex2objA
+
+    };
+    var ex2objC = 
+    {
+        name     : "OBJC",
+        __proto__:ex2objA
+    };
+
+    //ex2objA.yell()  --> "OBJA"
+    //ex2objB.yell()  --> "OBJB"
+    //ex2objC.yell()  --> "OBJC"
+
+
+/*
+	开始要注意，上文通过指定让ex2objB， ex2objC的__proto__指向ex2objA，我们得到了第一个原型链，我们还可以继续扩展下去，比如让objA继续指向它的母亲.
+
+	这里要注意的是，例子3和例子2并没有作太大的改动，仅仅是把objA的__proto__指向了newobjAMother。那么显然，按照例子2的逻辑，objA就可以使用ex3objAMother的方法了。然而，这里尝试一下，对objB和objC，试着也同样call这个motherAlert， 我们发现它可以使用！
+
+    这解释了原型链是怎么查找的。一直向上查找，直到找到/最终找完。
+*/
+
+    var ex3objAMother =
+    {   
+        name       :"mother",
+        motherAlert: function()
+                     {
+                         alert(this.name + " I am your mother");
+                     }
+    };
+
+
+    var ex3objA = 
+    {
+        name: "OBJA",
+        yell:   function()
+               {
+                   	alert(this.name);
+               },
+        __proto__: ex3objAMother
+    };
+    var ex3objB = 
+    {
+        name     : "OBJB",
+        __proto__: ex3objA
+
+    };
+    var ex3objC = 
+    {
+        name     : "OBJC",
+        __proto__: ex3objA
+    };
+
+    //ex3objA.yell()  --> "OBJA"
+    //ex3objB.yell()  --> "OBJB"
+    //ex3objC.yell()  --> "OBJC"
+
+
+/*
+	从这里，我们立刻看到了原型链继承的好处：1是省资源，2是链式继承。
+	//如不指定，则自动继承Object.prototype
+*/
+
+/*
+	
+*/
+    var generation1 =
+    {   
+        name  : "generation1",
+        g1yell: function()
+                {
+                    alert(this.name + " I am generation1");
+                }
+    };
+
+
+    var generation2 = 
+    {
+        name      : "generation2",
+        g2yell    : function()
+                    {
+                        alert(this.name+ " I am generation2");
+                    },
+        __proto__ : generation1
+    };
+    var generation3 = 
+    {
+        name     : "generation3",
+        __proto__: generation2
+
+    };
+
+
+</script>  
+
+
+</html>

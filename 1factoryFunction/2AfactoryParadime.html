@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+    
+
+    function carFactory(name, speed)
+    {
+    //this is a better way using factory paradime.
+    //it is better, however, notice that car.alert will be create in every instance.
+
+    var carBlueprint       = new Object();
+        carBlueprint.name  = name;
+        carBlueprint.speed = speed;
+        carBlueprint.alert = function(){alert("this is my car.");}
+    return carBlueprint;   
+    }
+
+	var newCarA  = carFactory("Fast", 100);
+	var newCarB  = carFactory("Slow", 1);
+    console.log(newCarA.speed);
+    console.log(newCarB.speed);
+
+
+    function alertBetter(){alert("This is a better version.");}
+
+    function carFactoryBetter(name, speed)
+    {
+    //this is a better way using factory paradime.
+    //it is better, however, notice that car.alert will be create in every instance.
+    
+    //However, it is better except that it is calling an outside function. We want a static-like class funtion however end up using an outside function.
+
+    var carBlueprint       = new Object();
+        carBlueprint.name  = name;
+        carBlueprint.speed = speed;
+        carBlueprint.alert = alertBetter;
+    return carBlueprint;   
+    }
+
+    var newCar = carFactoryBetter("mash", 200);
+    console.log(newCar.speed);
+    newCar.alert();
+
+
+
+</script>
+
+
+</html>

@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+
+<div id = "forAjaxToChange">
+<input id = "listenerInput" type = button>
+</div>
+</body>
+
+<script type="text/javascript">
+
+/*
+	This shows a most simple version of Ajax.
+	use send() function as a trigger.
+	interestingly, ajax.send cannot be used as a event listener 
+*/
+
+
+	function changeContent()
+	{
+		var div = document.getElementById("forAjaxToChange");
+	    if (this.readyState == 4 && this.status == 200) 
+	    {
+				div.innerHTML = this.responseText;
+		}
+	}
+
+	var ajaxObject = new window.XMLHttpRequest();
+		ajaxObject.onreadystatechange = changeContent;
+
+	ajaxObject.open("GET","ajax_info.txt", true);
+	
+	function changeDiv()
+	{
+		var div = document.getElementById("forAjaxToChange");
+				div.innerHTML = "that's it";
+
+	}
+	ajaxObject.send();
+	//document.getElementById("listenerInput").addEventListener("click", changeDiv);
+	
+
+
+
+
+
+
+
+</script>
+</html>

@@ -1,0 +1,31 @@
+0. js是一种较为复杂的语言，有过程式部分，有OOP部分，也有函数式部分。这里的第一个课，我们从对象切入。
+
+        like java, in JS, basically we have 2 types:
+        
+            primative, string, number, bool.
+            
+            object
+
+        The reason why some primative behave like object is that they are cast into object when operated.
+
+1.1. literal object or constructor mode:
+
+    L:     var objectL = {a:1, b:2};
+    C:     var objectC = new object();
+               objectC.a = 1;
+               object.b  = 2;
+
+1.2  There is no such thing like "method", or object exclusive method. It means that a method is actually a function that could be used by another things.           
+
+
+1. 用工厂函数可以解决建立一个自定义object很繁复的问题。然而它带来的问题就是，所有的instance都有独自的method，无法share static method.
+
+2. 假如把method分离出来成为一个public method，就可以解决上面的问题，然而这就显得不伦不类。instance share a outside method. 这样就有2个object，一个是funtion，一个是instance，两者没有关系。
+
+3. 引入this关键字的这个时刻，就可以解决这个问题，这个方法叫做constructor。然而，它还是一样，并没有解决static method节省资源的这个缺陷。
+
+4. 这个时候我们用到prototype，把this这个字变为functionName, 这样每一次new的时候，无论怎么new，都是share一个实例罢了。
+
+5. 通过prototype和this混编，完成了半prototype和半class的功能。
+
+综上，用this的时候就可以用new来instantiate一个新的object. 在这个时候如果用prototype的话，那就可以产生share function的功能了。

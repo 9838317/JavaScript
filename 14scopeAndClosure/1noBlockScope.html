@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+	//This is about block scope.
+	/*
+	1. 	Some of the programming language, like C and Java, have a feature called "block scope".
+		In programming, when some codes are embranced by curly braces, they are called a block. 
+		block scope means that, when you declared some variable in the block, then it is generally impossible to use the variable outside the block, like:
+
+		{
+			int blockVariable = 10;
+		}
+
+		print blockVariable;		//this is wrong because the variable hasn't been initialized.
+	
+	2.  however, in javascript, there is no such "block" thing. It means that, if you declare a variable in the block, then it could as well be referred in outer scope. see following:
+	*/	
+
+
+	{
+		var a = 1020;
+	}
+
+	//a will be alerted.
+	alert(a);
+
+</script>
+
+
+</html>

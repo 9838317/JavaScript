@@ -1,0 +1,47 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+</head>
+
+    <body>
+    </body>
+
+    <script type="text/javascript">
+
+    /*
+        JS is a kind of prototype style inherit/search programming. Here we briefly explain what is prototype.
+
+            1.only funcion gets .prototype property. Prototype is used by function to create its instance's __proto__
+				that is: __proto__ is created by protytype， so:
+				
+					class  create instance,           -->   instance.__proto__  == class.prototype
+					object create class.prototype,    -->   object.prototype== class.prototype.__proto__
+
+            instanceOfConstructor.__proto__           = ConstructorFun.prototype;
+                   ConstructorFun.prototype.__proto__ = Object.prototype;
+    */
+        console.log("1__________________________________________________________");
+
+        var instanceAOBJ = {  a:2  };
+        console.log(instanceAOBJ.__proto__);        
+        console.log(instanceAOBJ.prototype);
+        console.log("This is a log file.");
+
+        console.log("2__________________________________________________________");
+
+        function ConstrucFunA()
+        {
+        	this.name = "A";
+        }
+        console.log(ConstrucFunA.__proto__);        
+        console.log(ConstrucFunA.prototype);
+        console.log("This is a log file.");
+        console.log("3__________________________________________________________");
+
+
+
+    </script>
+    
+</html>

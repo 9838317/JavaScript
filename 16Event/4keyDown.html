@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+
+  <body>
+<p id = "p">This is a p.</p>
+</body>
+
+<script type="text/javascript">
+
+
+//addEventListener not only listens to click, but also keydown
+//but remember when it is keydown event, then it should be binded to window object.
+
+	var elementP = document.getElementById("p");
+	elementP.innerHTML = "changed!";
+	window.addEventListener	("keydown", listenKeyDown);
+
+	function listenKeyDown(event)
+	{
+		if (event.keyCode === 37)
+		{
+			console.log("This is a log file.");
+		}	
+	}
+</script>
+
+
+</html>

@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+//Here enables to see how js pass values.
+
+var globalColor = 0000;
+
+var obj = {"globalColor":1111};
+
+function testIt()
+{
+	console.log(globalColor);
+
+	//with keyword provide a temp scope in which scope of obj is add ahead.
+	with(obj)
+	{console.log(globalColor);}
+
+}
+testIt();
+
+     
+</script> 
+</html>

@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+//Here enables to see how js pass values.
+
+var color = "blue";
+alert("this is when created of color " + color + " should be blue");
+
+function changeColor()
+{
+    var anotherColor = "red";
+	alert("this is when created of anotherColor " + anotherColor + " should be red");
+    function swapColors()
+    {
+        var tempColor = anotherColor;
+        anotherColor = color;
+        color = tempColor;
+    }
+	swapColors();
+	alert("this is change by inner function of anotherColor " + anotherColor + " should be blue");
+
+	/*
+		1. look up for anotherColor, could't find it, so look up in changeColor scope.
+		2. anotherColor == red, so tempColor = red.
+		3. look up for color, could't find it, so look up in changeColor scope, still couldn't find it, look it up in Global scope.
+		4. it get color = blue, so outer anotherColor = color = blue;
+		5. similarly, outer color finally is set to "red";
+	*/
+}	
+changeColor();
+alert("this is change by inner function of color " + color + " should be red");
+
+
+     
+</script> 
+</html>
