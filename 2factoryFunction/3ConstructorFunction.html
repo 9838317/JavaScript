@@ -9,13 +9,13 @@
 <script type="text/javascript">
 
 	/*
-	前面用工厂方法，其实是用了一个template，每次创建了一个new object。这种方式并不像是传统的class based instantiation.
-	下面这种方式就不再用工厂方法，而是用this + new的模式，达到一个OOP的方式。
-
-	注意到用new方法初始化的每个实例，都有自己独立的alerter().
+    	前面用工厂方法，其实是用了一个template，每次创建了一个new object。这种方式并不像是传统的class based instantiation.
+    	下面这种方式就不再用工厂方法，而是用this + new的模式，达到一个OOP的方式。
+    
+    	注意到用new方法初始化的每个实例，都有自己独立的alerter().
 	*/
 
-    //The previous way doesn't seem like a class, that is, the OBJECT, linked a out-resourse method.
+    //The previous way doesn't seem like to be a traditional class, that is, the OBJECT, have a field, pointing to a foreign method.
 
     //but we want the method to be part of the object. In this case, we use the following constructor.
 
@@ -24,15 +24,15 @@
    //this is obviously a very slow way.
     function constructorFunction(name, speed)
     {
-    	this.name     = name;
-    	this.speed    = speed;
-    	this.alerter  = function(){alert("alert it.");}
+        this.name     = name;
+        this.speed    = speed;
+        this.alerter  = function(){alert("alert it.");}
     } 
 
     var newCar = new constructorFunction ("Car", 200);
     newCar.alerter();
 
-    //However, we still haven't share a same method. 
+    //However, we still haven't shared a same method. 
 
     function constructorFunction(name, speed)
     {

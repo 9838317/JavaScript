@@ -1,0 +1,45 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+    //This shows how a variable is related to the global variable of window. When we declare a variable, it is also an attribute of window object.
+
+    var variableVar = 12;
+        variable = 16;
+    
+    var justLeftFun = function()
+    {
+        console.log("justLeftFun");
+    }
+    var bothFun = function associatedRightFun ()
+    {
+        console.log("bothFun");
+    }
+    function justRight()
+    {
+        console.log("justRight");
+    }
+
+    console.log(variableVar);
+    console.log(variable);
+    console.log(justLeftFun);
+    console.log(bothFun);
+    //console.log(associatedRightFun);         //This is wrong
+    console.log(justRight);
+    
+    console.log("__________________________-");
+    
+    console.log(window.variableVar);
+    console.log(window.variable);
+    console.log(window.justLeftFun);
+    console.log(window.bothFun);
+    console.log(window.associatedRightFun);    // Of course this will print undefined 
+    console.log(window.justRight);
+</script>
+
+</html>

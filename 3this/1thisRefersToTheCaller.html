@@ -1,0 +1,39 @@
+ 
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+    // This shows how a function regard the "this" keyword according to the caller. 
+    // This always refers to the caller.
+
+    var newObj = 
+    {
+        name      :"newObj",
+        changeName: function() { this.name = "changed!";} ,
+        callSelf  : function() { console.log(this); } ,
+    }
+
+    newObj.callSelf();
+    newObj.changeName();
+    newObj.callSelf();
+
+    var variableInglobal;
+    variableInglobal = newObj.callSelf;
+    variableInglobal();                   // will log window
+
+
+</script>
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+
+    // This shows 2 different senarios when we try to create a variable inside a fucntion. Generally, if we don't use the 'var' keyword, then the variable will be treated as an attribute of global variable window.
+
+    var testVarInsideFunction = function()
+    {
+            woVar = 15
+        var wVar  = 22;        // won't add anything to window
+
+        console.log(window.woVar);
+        console.log(window.wVar);
+
+        window.woVar = 77;
+        console.log(woVar);
+    }
+
+    testVarInsideFunction();
+</script>
+
+</html>

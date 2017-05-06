@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+<script type="text/javascript">
+
+    // This program shows the different of treating a function as a normal function or as a constructor. If we use a new keyword, then it is treated as a constructor that when it is called, it won't affect the variable of global object window.
+
+console.log("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+
+    function functionIsObject()
+    {
+        this.name = 1234;
+    }
+
+functionIsObject();
+console.log(window.name);
+
+    function ttt()
+    {
+        this.name = 1234;
+    }
+
+new ttt();
+console.log(window.name);
+
+
+
+</script>
+
+
+
+
+
+
+
+
+</html>
