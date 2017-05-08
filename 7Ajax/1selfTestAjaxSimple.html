@@ -29,9 +29,10 @@
 	}
 
 	var ajaxObject = new window.XMLHttpRequest();
-		
+    
+	ajaxObject.open("GET","http://45.78.58.82/static/json/j1", true);
 
-	ajaxObject.open("GET","ajax_info.txt", true);
+	//ajaxObject.open("GET","ajax_info.txt", true);
 	ajaxObject.onreadystatechange = changeContent;
 
 

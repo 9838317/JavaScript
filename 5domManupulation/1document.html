@@ -1,0 +1,114 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+<style>
+    
+
+
+
+</style>
+
+</head>
+<body>
+
+    <div id="tableContainer1"></div>
+    <div id="tableContainer2"></div>
+    <div id="tableContainer3"></div>
+
+
+</body>
+
+<script type="text/javascript">
+
+    // In order to create a new table, this might be the fastest way of creating a table. Else you have to do in the second way. 
+    var table = document.createElement("table");
+    
+    string1 = 
+    `
+        <tbody>
+             <tr><td>1</td><td>2</td><td>3</td></tr>
+             <tr><td>1</td><td>2</td><td>3</td></tr>
+        </tbody>
+    `
+     ;
+
+    string2 = ""                                      +
+    " <tbody>"                                       +
+    "     <tr><td>1</td><td>2</td><td>3</td></tr>"   +
+    "     <tr><td>1</td><td>2</td><td>3</td></tr>"   +
+    " </tbody>";
+    table.innerHTML = string1;
+    
+
+
+
+    var tableContainer1 = document.getElementById("tableContainer1");
+    tableContainer1.appendChild(table);
+
+
+    // This is the traditional way, but it's really awkward.
+    var table = document.createElement("table");
+    var tbody = document.createElement("tbody");
+
+    var tr1 = document.createElement("tr");
+    var tr2 = document.createElement("tr");
+
+    var td11 = document.createElement("td");
+        td11.innerHTML = 1;
+    var td12 = document.createElement("td");
+        td12.innerHTML = 2;
+    var td13 = document.createElement("td");
+        td13.innerHTML = 3;
+
+    var td21 = document.createElement("td");
+        td21.innerHTML = 1;
+    var td22 = document.createElement("td");
+        td22.innerHTML = 2;
+    var td23 = document.createElement("td");
+        td23.innerHTML = 3;
+
+    tr1.appendChild(td11);
+    tr1.appendChild(td12);
+    tr1.appendChild(td13);
+
+    tr2.appendChild(td21);
+    tr2.appendChild(td22);
+    tr2.appendChild(td23);
+
+    tbody.appendChild(tr1);
+    tbody.appendChild(tr2);
+
+    table.appendChild(tbody);
+
+    var tableContainer2 = document.getElementById("tableContainer2");
+    tableContainer2.appendChild(table);
+
+    //There is an immediate way of creating a new table like following:
+    //    With this method, what we need to do is just create each row by table.insertRow(), and then each row will be entitled the method off insertCell, that's it.
+
+
+    var table = document.createElement("table");
+    var row1 = table.insertRow(0);
+    var row2 = table.insertRow(1);
+    
+    
+    var cell1 = row1.insertCell(0);
+    var cell2 = row1.insertCell(1);
+    
+    cell1.innerHTML = "row1 CELL1";
+    cell2.innerHTML = "row1 CELL2";    
+    
+    cell1 = row2.insertCell(0);
+    cell2 = row2.insertCell(1);
+    
+    cell1.innerHTML = "row2 CELL1";
+    cell2.innerHTML = "row2 CELL2";    
+
+    var tableContainer3 = document.getElementById("tableContainer3");
+    tableContainer3.appendChild(table);
+    
+</script>
+
+
+</html>

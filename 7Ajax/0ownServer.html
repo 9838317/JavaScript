@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body>
+
+<div id = "forAjaxToChange">
+<input type = button  onclick="ajaxWrapper()">
+</div>
+</body>
+
+<script type="text/javascript">
+
+/*
+    This program should be runned under my server.
+    first open firefox or chrome, and then go to address:
+        45.78.58.82
+    then copy the JavaScript code into the console to see the output.
+*/
+
+
+	var ajaxObject = new window.XMLHttpRequest();
+	ajaxObject.open("GET","http://45.78.58.82/static/json/j1", true);
+	ajaxObject.send();
+
+	function changeContent()
+	{
+        alert(1234);
+	}
+
+	//ajaxObject.open("GET","ajax_info.txt", true);
+	ajaxObject.onreadystatechange = changeContent;
+    
+
+
+
+</script>
+</html>

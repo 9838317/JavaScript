@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="" charset = utf-8>
+    <style></style>
+  </head>
+  <body>
+
+
+<div id = "div">
+    <p id="p">p</p>
+</div>
+
+
+  </body>
+
+<script type="text/javascript">
+    function fireClick()
+    {
+        alert("clicked!");
+    }
+    
+    function fireMouse()
+    {
+        alert("mouseOver!");
+    }
+    function keyPress()
+    {
+        alert("keyPress!");
+    }
+    
+    
+    
+    var p       = document.getElementById("p");
+    var div     = document.getElementById("div");
+    var varWindow  = window;
+    
+            p.addEventListener("click",     fireClick);
+          div.addEventListener("mouseover", fireMouse);
+    varWindow.addEventListener("keypress",  keyPress)
+</script>
+
+
+
+
+</html>

@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title></title>
+    <meta content="">
+    <style></style>
+  </head>
+  <body></body>
+
+
+<script type="text/javascript">
+
+    function deadAfterCall()
+    {
+        var name = 1234;
+    }
+    console.log(name);    // of course name will be unaccessable since the function stack is deallocated.
+
+
+    // If we still want to track the variable of name which is defined inside aliveAfterCall, then we need to use a closure.
+    function aliveAfterCall()
+    {
+        var name = 1234;
+        return function returnName() {return name;}
+    }
+
+    // This mechanism is nice if we want to implement a counter which could not be altered by any other functions or objects.
+    function counter()
+    {
+        var numberCounter = 0;
+        return function returnName() 
+        {
+            return (++numberCounter);
+        }
+    }
+</script>
+
+</html>

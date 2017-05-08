@@ -157,8 +157,9 @@ var histogram_hashlzf = {};
 
         function (originalArray)
         {
-            //uncomment this to generate arg array.
-            //originalArray = [1,2,3,4,5,6,7,8,9,10];  
+            //uncomment following to generate arg array.
+            if (!originalArray)
+                originalArray = [1,2,3,4,5,6,7,8,9,10];  
 
             histogram_hashlzf.divList         = [];
             histogram_hashlzf.oroginalArray   = [];
