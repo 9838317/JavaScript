@@ -1,1 +1,11 @@
-Rajesh
+var xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function(){
+    if (this.readyState == 4 && this.status == 200){
+        var img = document.createElement("img");
+        var url = window.URL || window.webkitURL;
+        img.src = url.createObjectURL(this.response);
+    document.body.appendChild(img)}
+}
+xhr.open('GET', '112.jpg');
+xhr.responseType = 'blob';
+xhr.send(); 
